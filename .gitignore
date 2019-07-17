@@ -18,6 +18,7 @@ HELP.md
 *.iws
 *.iml
 *.ipr
+*/mvnw.*
 
 ### NetBeans ###
 /nbproject/private/
@@ -47,4 +48,8 @@ target
 /mvnw/
 /.mvn/
 .mvn
+GlobalException/mvnw
+GlobalException/mvnw.cmd
+*/mvnw
+*/mvnw.cmd
 
