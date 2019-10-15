@@ -14,7 +14,7 @@ public class ApplicationTest {
     private BeanProperties beanProperties;
 
     @Test
-    public void getBean(){
+    public void getBean() {
         //Assert.assertArrayEquals(beanProperties.getName(),"SpringBootLearning");
     }
 

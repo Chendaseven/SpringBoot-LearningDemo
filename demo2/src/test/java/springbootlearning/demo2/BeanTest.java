@@ -15,8 +15,8 @@ public class BeanTest {
     private BeanProperties beanProperties;
 
     @Test
-    public void test(){
-        Assert.assertEquals(beanProperties.getName(),"kobe");
-        Assert.assertEquals(beanProperties.getTitle(),"SpringBoot学习");
+    public void test() {
+        Assert.assertEquals(beanProperties.getName(), "kobe");
+        Assert.assertEquals(beanProperties.getTitle(), "SpringBoot学习");
     }
 }

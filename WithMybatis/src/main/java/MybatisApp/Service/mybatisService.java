@@ -9,7 +9,7 @@ public class mybatisService {
     @Autowired
     private UserMapper userMapper;
 
-    public Integer test(String name,int age){
+    public Integer test(String name, int age) {
         int result = userMapper.insert(name, age);
         return result;
     }

@@ -18,31 +18,31 @@ import java.util.Enumeration;
 @Component
 public class WebLogAspect {
 
-	private static final Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
 
-	@Pointcut("execution(public * com.itmayiedu.controller.*.*(..))")
-	public void webLog() {
-	}
+    @Pointcut("execution(public * com.itmayiedu.controller.*.*(..))")
+    public void webLog() {
+    }
 
-	@Before("webLog()")
-	public void doBefore(JoinPoint joinPoint) throws Throwable {
-		// 接收到请求，记录请求内容
-		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-		HttpServletRequest request = attributes.getRequest();
-		// 记录下请求内容
-		logger.info("URL : " + request.getRequestURL().toString());
-		logger.info("HTTP_METHOD : " + request.getMethod());
-		logger.info("IP : " + request.getRemoteAddr());
-		Enumeration<String> enu = request.getParameterNames();
-		while (enu.hasMoreElements()) {
-			String name = (String) enu.nextElement();
-			logger.info("name:{},value:{}", name, request.getParameter(name));
-		}
-	}
+    @Before("webLog()")
+    public void doBefore(JoinPoint joinPoint) throws Throwable {
+        // 接收到请求，记录请求内容
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        // 记录下请求内容
+        logger.info("URL : " + request.getRequestURL().toString());
+        logger.info("HTTP_METHOD : " + request.getMethod());
+        logger.info("IP : " + request.getRemoteAddr());
+        Enumeration<String> enu = request.getParameterNames();
+        while (enu.hasMoreElements()) {
+            String name = (String) enu.nextElement();
+            logger.info("name:{},value:{}", name, request.getParameter(name));
+        }
+    }
 
-	@AfterReturning(returning = "ret", pointcut = "webLog()")
-	public void doAfterReturning(Object ret) throws Throwable {
-		// 处理完请求，返回内容
-		logger.info("RESPONSE : " + ret);
-	}
+    @AfterReturning(returning = "ret", pointcut = "webLog()")
+    public void doAfterReturning(Object ret) throws Throwable {
+        // 处理完请求，返回内容
+        logger.info("RESPONSE : " + ret);
+    }
 }

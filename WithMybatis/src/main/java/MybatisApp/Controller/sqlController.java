@@ -14,8 +14,8 @@ public class sqlController {
 
     @RequestMapping("/mybatisTest")
     @ResponseBody
-    public Integer sqlTest(String name,int age){
-        Integer test = mybatisService.test(name,age);
+    public Integer sqlTest(String name, int age) {
+        Integer test = mybatisService.test(name, age);
         return test;
     }
 

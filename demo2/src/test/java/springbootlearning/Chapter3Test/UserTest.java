@@ -17,14 +17,16 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import springbootlearning.demo2.Chapter3.RESTfulTest;
+
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes= MockServletContext.class)
+@SpringBootTest(classes = MockServletContext.class)
 @WebAppConfiguration
 public class UserTest {
     private MockMvc mvc;
-//
+
+    //
 //    @Autowired
 //    private RESTfulTest resTfulTest;
     @Before
@@ -76,8 +78,8 @@ public class UserTest {
         MvcResult mvcResult = perform.andExpect(MockMvcResultMatchers.content().string(equalTo("{\"id\":1,\"name\":\"测试终极大师\",\"age\":30}")))
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
-        int status=mvcResult.getResponse().getStatus();                 //得到返回结果状态
-        String content=mvcResult.getResponse().getContentAsString();    //得到返回结果，内容
+        int status = mvcResult.getResponse().getStatus();                 //得到返回结果状态
+        String content = mvcResult.getResponse().getContentAsString();    //得到返回结果，内容
         System.out.println(status);
         System.out.println(content);
 
